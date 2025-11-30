@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Safety Songs Co. – Safety Training That Sticks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --bg-alt: #ffffff;
+      --text-main: #202538;
+      --text-muted: #6f778b;
+      --accent: #ff9f1c;
+      --accent-soft: #fff3de;
+      --border-soft: #e2e5f0;
+      --card-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --transition-fast: 0.2s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      padding: 1.5rem 0;
+      background: var(--bg);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: .9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-cta {
+      padding: .55rem 1.15rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      font-size: .85rem;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    .hero {
+      padding: 3.5rem 0 4.5rem;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-copy {
+      flex: 1 1 320px;
+    }
+
+    .hero-kicker {
+      font-size: .8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: .75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 span.highlight {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: .85rem 1.6rem;
+      font-size: .95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+                  background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #101010;
+      box-shadow: 0 12px 25px rgba(255, 159, 28, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(255, 159, 28, 0.45);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text-main);
+      border: 1px solid var(--border-soft);
+    }
+
+    .btn-secondary:hover {
+      background: #f8fafc;
+    }
+
+    .hero-note {
+      margin-top: .75rem;
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-media {
+      flex: 1 1 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: var(--bg-alt);
+      border-radius: 40px;
+      padding: 2.3rem 2rem;
+      box-shadow: var(--card-shadow);
+      max-width: 360px;
+    }
+
+    .hero-card img {
+      border-radius: 24px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card-title {
+      font-weight: 600;
+      margin-bottom: .35rem;
+    }
+
+    .hero-card-caption {
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: .5rem;
+    }
+
+    .section-subtitle {
+      font-size: .95rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .benefit-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.5rem 1.7rem;
+      box-shadow: 0 12px 35px rgba(15,23,42,0.04);
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-title {
+      font-weight: 600;
+      margin-bottom: .35rem;
+    }
+
+    .benefit-text {
+      font-size: .9rem;
+      color: var(--text-muted);
+    }
+
+    .songs-section {
+      background: #eef2ff;
+    }
+
+    .songs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .songs-header h2 {
+      font-size: 1.6rem;
+    }
+
+    .songs-note {
+      font-size: .9rem;
+      color: var(--text-muted);
+    }
+
+    .songs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .songs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .songs-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .song-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 1rem 1rem 1.1rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: .8rem;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.05);
+    }
+
+    .song-play {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .song-meta {
+      min-width: 0;
+    }
+
+    .song-title {
+      font-size: .92rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .song-desc {
+      font-size: .78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .song-duration {
+      font-size: .8rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pricing-section {
+      background: var(--bg);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 1.9rem 1.7rem 2.1rem;
+      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 20px 60px rgba(255, 159, 28, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .badge {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.3rem;
+      background: #111827;
+      color: #f9fafb;
+      font-size: .67rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: .25rem .6rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .pricing-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .pricing-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
+
+    .pricing-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: .35rem;
+    }
+
+    .pricing-price span {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-note {
+      font-size: .83rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-list {
+      list-style: none;
+      font-size: .86rem;
+      color: var(--text-main);
+      display: grid;
+      gap: .4rem;
+    }
+
+    .pricing-list li::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: .45rem;
+    }
+
+    .pricing-footer {
+      margin-top: 1.4rem;
+    }
+
+    .pricing-footer button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .cta-section {
+      background: #111827;
+      color: #e5e7eb;
+    }
+
+    .cta-inner {
+      padding: 2.8rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-title {
+      font-size: 1.6rem;
+      margin-bottom: .35rem;
+    }
+
+    .cta-text {
+      font-size: .95rem;
+      color: #9ca3af;
+      max-width: 420px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      background: #1f2937;
+    }
+
+    footer {
+      padding: 1.8rem 0 2.2rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+      background: #0b1020;
+      color: #9ca3af;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: .78rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner {
+        flex-direction: column;
+      }
+
+      .hero-card {
+        max-width: 420px;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding-bottom: .4rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        font-size: .82rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">🎧</div>
+        <span>Safety Songs Co.</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#why">Why Songs?</a>
+        <a href="#songs">Song Library</a>
+        <a href="#pricing">Packages</a>
+        <button class="nav-cta">Contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="hero-kicker">Safety songs for real workplaces</div>
+          <h1>
+            Safety Training That Actually
+            <span class="highlight">Sticks.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Swap sleepy toolbox talks for songs your team can’t stop humming.
+            We turn critical safety protocols into memorable hooks and choruses.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary">
+              ▶ Listen to Samples
+            </button>
+            <button class="btn btn-secondary">
+              View Packages
+            </button>
+          </div>
+          <p class="hero-note">
+            MP3s, lyric sheets & karaoke tracks included in every package.
+          </p>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-card">
+            <img src="https://via.placeholder.com/600x360.png?text=Hard+Hat+%2B+Headphones"
+                 alt="Hard hat wearing headphones" />
+            <div class="hero-card-title">Built for busy teams</div>
+            <div class="hero-card-caption">
+              Drop the tracks into your existing briefings, LMS, or induction days
+              and watch engagement jump.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Why use songs for safety?</div>
+          <h2 class="section-title">Because people remember what they sing.</h2>
+          <p class="section-subtitle">
+            Music activates memory centres in the brain, helping employees recall
+            the right steps when it matters most — on the job.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">🎵</div>
+            <h3 class="benefit-title">High Retention</h3>
+            <p class="benefit-text">
+              Melodies act as powerful mnemonics, turning complex procedures into
+              simple, repeatable lines.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🙌</div>
+            <h3 class="benefit-title">Team Engagement</h3>
+            <p class="benefit-text">
+              Replace eye-rolls with tapping feet. Use songs to kick-off briefings,
+              toolbox talks, and refresher trainings.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🛡️</div>
+            <h3 class="benefit-title">Compliance + Fun</h3>
+            <p class="benefit-text">
+              All lyrics are built around real safety protocols, just delivered
+              in a format no one can ignore.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="songs" class="section songs-section">
+      <div class="container">
+        <div class="songs-header">
+          <div>
+            <h2>Trending Safety Hits</h2>
+            <p class="songs-note">
+              Preview a few tracks from our catalogue.
+              Swap in your own playlist or custom songs later.
+            </p>
+          </div>
+          <a href="#" class="btn btn-secondary" style="font-size:0.85rem;">View full library →</a>
+        </div>
+
+        <div class="songs-grid">
+          <article class="song-card">
+            <button class="song-play" aria-label="Play sample">▶</button>
+            <div class="song-meta">
+              <div class="song-title">Lift With Your Knees</div>
+              <div class="song-desc">Upbeat funk track about safe manual handling.</div>
+            </div>
+            <div class="song-duration">2:14</div>
+          </article>
+
+          <article class="song-card">
+            <button class="song-play" aria-label="Play sample">▶</button>
+            <div class="song-meta">
+              <div class="song-title">The Fire Drill Boogie</div>
+              <div class="song-desc">Disco-style walk-through of evacuation routes.</div>
+            </div>
+            <div class="song-duration">3:05</div>
+          </article>
+
+          <article class="song-card">
+            <button class="song-play" aria-label="Play sample">▶</button>
+            <div class="song-meta">
+              <div class="song-title">PPE (Keep It On)</div>
+              <div class="song-desc">Pop anthem celebrating gloves, goggles & more.</div>
+            </div>
+            <div class="song-duration">2:45</div>
+          </article>
+
+          <article class="song-card">
+            <button class="song-play" aria-label="Play sample">▶</button>
+            <div class="song-meta">
+              <div class="song-title">Slips, Trips & Falls</div>
+              <div class="song-desc">Rock tune about watching your step on site.</div>
+            </div>
+            <div class="song-duration">2:30</div>
+          </article>
+
+          <article class="song-card">
+            <button class="song-play" aria-label="Play sample">▶</button>
+            <div class="song-meta">
+              <div class="song-title">Screen Break Serenade</div>
+              <div class="song-desc">Lo-fi reminder to move, blink & stretch.</div>
+            </div>
+            <div class="song-duration">1:55</div>
+          </article>
+
+          <article class="song-card">
+            <button class="song-play" aria-label="Play sample">▶</button>
+            <div class="song-meta">
+              <div class="song-title">Forklift Funk</div>
+              <div class="song-desc">Bass-heavy groove about warehouse traffic.</div>
+            </div>
+            <div class="song-duration">3:10</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section pricing-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Choose your safety pack</div>
+          <h2 class="section-title">Simple packages for different workplaces.</h2>
+          <p class="section-subtitle">
+            Every pack includes high-quality MP3s, lyric sheets (PDF) and karaoke
+            versions for team-building sessions.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pricing-icon">💻</div>
+            <h3 class="pricing-name">Office Essentials</h3>
+            <div class="pricing-price">£49 <span>/ pack</span></div>
+            <p class="pricing-note">
+              Perfect for teams who spend most of the day at desks and screens.
+            </p>
+            <ul class="pricing-list">
+              <li>5 ergonomics & wellbeing tracks</li>
+              <li>Digital lyric sheets</li>
+              <li>MP3 & WAV formats</li>
+              <li>Unlimited internal use</li>
+            </ul>
+            <div class="pricing-footer">
+              <button class="btn btn-secondary">Choose Office Essentials</button>
+            </div>
+          </article>
+
+          <article class="pricing-card featured">
+            <div class="badge">Best seller</div>
+            <div class="pricing-icon">📦</div>
+            <h3 class="pricing-name">Warehouse Warrior</h3>
+            <div class="pricing-price">£89 <span>/ pack</span></div>
+            <p class="pricing-note">
+              Detailed tracks for logistics, warehouses, factories & depots.
+            </p>
+            <ul class="pricing-list">
+              <li>10 industrial safety tracks</li>
+              <li>Includes “Forklift Funk” & manual handling songs</li>
+              <li>Karaoke & instrumental versions</li>
+              <li>License for all your sites</li>
+            </ul>
+            <div class="pricing-footer">
+              <button class="btn btn-primary">Get Warehouse Warrior</button>
+            </div>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-icon">🚒</div>
+            <h3 class="pricing-name">Fire & Emergency</h3>
+            <div class="pricing-price">£59 <span>/ pack</span></div>
+            <p class="pricing-note">
+              Focused bundle for drills, alarms and emergency response teams.
+            </p>
+            <ul class="pricing-list">
+              <li>6 emergency protocol tracks</li>
+              <li>Evacuation rhythm guide</li>
+              <li>Printable lyric posters</li>
+              <li>Annual update option</li>
+            </ul>
+            <div class="pricing-footer">
+              <button class="btn btn-secondary">Choose Fire & Emergency</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div>
+          <h2 class="cta-title">Ready to transform your safety culture?</h2>
+          <p class="cta-text">
+            Join organisations using song-based training to make safety
+            the highlight, not the afterthought. Let’s design the right pack
+            for your team.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <button class="btn btn-primary">Get All-Access Bundle – £199</button>
+          <button class="btn btn-ghost">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Safety Songs Co. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
