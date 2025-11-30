@@ -616,6 +616,47 @@ header {
 }
 </style>
   <style>
+.hero {
+  margin-top: 10px !important;   /* was ~60–80px */
+}
+
+.hero-inner {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+</style>
+  <style>
+@media (max-width: 640px) {
+
+  /* Reduce space below the header even further */
+  .hero {
+    margin-top: 4px !important;
+  }
+
+  /* Reduce top padding of hero container */
+  .hero-inner {
+    padding-top: 0 !important;
+  }
+
+  /* NAV BAR SPACING */
+  .nav {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  /* Logo block compression */
+  .nav-logo {
+    margin-right: 6px !important;
+  }
+
+  /* Compress nav links row */
+  .nav-links {
+    gap: 8px !important;
+    margin-top: 0 !important;
+  }
+}
+</style>
+  <style>
 
 /* MOBILE FIXES */
 @media (max-width: 640px) {
