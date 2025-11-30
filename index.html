@@ -591,6 +591,30 @@
       }
     }
   </style>
+  <style>
+
+/* MOBILE FIXES */
+@media (max-width: 640px) {
+  .nav-logo {
+    display: flex;
+    align-items: flex-end;   /* aligns helmet to bottom of the text */
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    height: 60px !important;   /* adjust if too big */
+    margin-bottom: 4px;        /* pulls helmet down toward title */
+  }
+
+  .nav-logo span {
+    font-size: 32px !important;
+    line-height: 1.0 !important;  /* reduces space between SAFETY / SONGS */
+    letter-spacing: -0.5px;
+    display: inline-block;
+  }
+}
+
+</style>
 </head>
 <body>
 <div class="page">
